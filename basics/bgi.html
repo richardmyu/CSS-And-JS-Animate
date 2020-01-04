@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style lang="">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .header {
+        height: 120px;
+        background-color: rgb(184, 224, 37);
+      }
+      .main .bgi-box {
+        width: 100%;
+        padding-bottom: 33%;
+        height: 0;
+        background-image: url('https://pic2.zhimg.com/v2-d0e40f4dda5a11211ce9bad0f402bd6b_r.jpg');
+        background-size: cover;
+        background-position: 50%;
+      }
+      .footer {
+        height: 120px;
+        background-color: rgb(80, 23, 211);
+      }
+      @media (min-width: 690px) {
+        .main .bgi-box {
+          padding-top: 52px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header"></header>
+    <main class="main">
+      <div class="bgi-box"></div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>

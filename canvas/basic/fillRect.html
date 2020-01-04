@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>canvas</title>
+  </head>
+  <body>
+    <div class="stage">
+      <canvas
+        id="myCanvas"
+        width="600"
+        height="600"
+        style="border:1px solid #000000;"
+      ></canvas>
+    </div>
+    <script>
+      let canvas = document.querySelector("#myCanvas");
+      // console.log(canvas);
+      // 创建 context 对象
+      let ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ff0000";
+      // 填充
+      // params: x, y, width, height
+      ctx.fillRect(0, 0, 150, 75);
+      ctx.fillRect(150, 75, 150, 75);
+      ctx.fillRect(300, 150, 150, 75);
+      ctx.fillRect(450, 225, 150, 75);
+
+      ctx.fillStyle = "yellow";
+      ctx.fillRect(0, 75, 150, 75);
+      ctx.fillRect(150, 150, 150, 75);
+      ctx.fillRect(300, 225, 150, 75);
+      ctx.fillRect(450, 300, 150, 75);
+
+      ctx.fillStyle = "blue";
+      ctx.fillRect(0, 150, 150, 75);
+      ctx.fillRect(150, 225, 150, 75);
+      ctx.fillRect(300, 300, 150, 75);
+      ctx.fillRect(450, 375, 150, 75);
+
+      ctx.fillStyle = "green";
+      ctx.fillRect(0, 225, 150, 75);
+      ctx.fillRect(150, 300, 150, 75);
+      ctx.fillRect(300, 375, 150, 75);
+      ctx.fillRect(450, 450, 150, 75);
+      
+      ctx.fillStyle = "cyan";
+      ctx.fillRect(0, 300, 150, 75);
+      ctx.fillRect(150, 375, 150, 75);
+      ctx.fillRect(300, 450, 150, 75);
+      ctx.fillRect(450, 525, 150, 75);
+    </script>
+  </body>
+</html>

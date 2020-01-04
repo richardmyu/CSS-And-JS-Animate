@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>21 * 21</title>
+    <style>
+      .contaier {
+        padding: 100px;
+      }
+      .contaier .heart {
+        margin: 0 auto;
+        width: 315px;
+        height: 315px;
+      }
+      .contaier .heart::before {
+        content: "";
+        display: block;
+        margin: -15px 0 0 -15px;
+        width: 15px;
+        height: 15px;
+        box-shadow: 90px 15px #b32220, 105px 15px #cf0902, 225px 15px #ff4815,
+          240px 15px #ff642c, 75px 30px #a01e1c, 90px 30px #a12624,
+          105px 30px #c00902, 120px 30px #c40e08, 210px 30px #fd4310,
+          225px 30px #f84412, 240px 30px #fa5f27, 255px 30px #fc652e,
+          60px 45px #8e1a19, 75px 45px #912321, 90px 45px #962f2e,
+          105px 45px #ac0500, 120px 45px #ad0b05, 135px 45px #af100b,
+          195px 45px #f73f0c, 210px 45px #f84412, 225px 45px #fa4a1a,
+          240px 45px #fa5f27, 255px 45px #fc652e, 270px 45px #fc6e3b,
+          45px 60px #9b0402, 60px 60px #9e0906, 75px 60px #9c110f,
+          90px 60px #b10903, 105px 60px #b9100a, 120px 60px #b3211e,
+          135px 60px #bd2c29, 150px 60px #e61802, 180px 60px #e71f09,
+          195px 60px #fc5934, 210px 60px #fd6e4e, 225px 60px #f73c24,
+          240px 60px #fa462f, 255px 60px #fc8739, 270px 60px #fd934c,
+          285px 60px #fda469, 30px 75px #850301, 45px 75px #8b0806,
+          60px 75px #8d0f0d, 75px 75px #a10702, 90px 75px #a70d08,
+          105px 75px #ac110b, 120px 75px #a01d1b, 135px 75px #ac2725,
+          150px 75px #da1702, 165px 75px #db1e09, 180px 75px #dd2511,
+          195px 75px #f75430, 210px 75px #f85c39, 225px 75px #eb3821,
+          240px 75px #ec422b, 255px 75px #ee4832, 270px 75px #f88233,
+          285px 75px #fa893e, 300px 75px #fd9149, 15px 90px #740100,
+          30px 90px #750705, 45px 90px #770c0a, 60px 90px #8e0500,
+          75px 90px #920b06, 90px 90px #940f0a, 105px 90px #8e1918,
+          120px 90px #91201f, 135px 90px #942827, 150px 90px #ca1300,
+          165px 90px #cc1b08, 180px 90px #cf2310, 195px 90px #f34f2b,
+          210px 90px #f75834, 225px 90px #f8603e, 240px 90px #df351f,
+          255px 90px #e23f29, 270px 90px #e64732, 285px 90px #f77c2a,
+          300px 90px #f88437, 315px 90px #fa8b41, 15px 105px #5c0101,
+          30px 105px #680303, 45px 105px #690707, 60px 105px #7a0402,
+          75px 105px #880f0d, 90px 105px #961917, 105px 105px #a3110c,
+          120px 105px #a71a15, 135px 105px #ac241f, 150px 105px #ce1302,
+          165px 105px #d41a0a, 180px 105px #da2919, 195px 105px #fa4315,
+          210px 105px #fa481b, 225px 105px #fa5329, 240px 105px #f54627,
+          255px 105px #f74c2e, 270px 105px #fa5336, 285px 105px #fd5a29,
+          300px 105px #fd6030, 315px 105px #fd6435, 15px 120px #4b0000,
+          30px 120px #4e0202, 45px 120px #500505, 60px 120px #690100,
+          75px 120px #700c0b, 90px 120px #741311, 105px 120px #8e0f0b,
+          120px 120px #8f1813, 135px 120px #921f1b, 150px 120px #bf1000,
+          165px 120px #bd1808, 180px 120px #be1f11, 195px 120px #f84010,
+          210px 120px #f84215, 225px 120px #fa4f24, 240px 120px #f04222,
+          255px 120px #f14729, 270px 120px #f14b2e, 285px 120px #fa5724,
+          300px 120px #fa5b2a, 315px 120px #fc5f30, 15px 135px #641c1b,
+          30px 135px #692221, 45px 135px #772f2e, 60px 135px #790301,
+          75px 135px #810806, 90px 135px #860f0c, 105px 135px #a7110e,
+          120px 135px #ac1d1a, 135px 135px #aa2321, 150px 135px #c7221f,
+          165px 135px #ca2d2b, 180px 135px #ca3937, 195px 135px #f83311,
+          210px 135px #fc401f, 225px 135px #fa5336, 240px 135px #f53722,
+          255px 135px #f34330, 270px 135px #f85240, 285px 135px #fd3c26,
+          300px 135px #f74733, 315px 135px #f34d3b, 15px 150px #531716,
+          30px 150px #5c1e1d, 45px 150px #582322, 60px 150px #680301,
+          75px 150px #6d0705, 90px 150px #720d0b, 105px 150px #94100d,
+          120px 150px #9b1a18, 135px 150px #9c211f, 150px 150px #b8201d,
+          165px 150px #bb2a28, 180px 150px #b93432, 195px 150px #f52c09,
+          210px 150px #f53615, 225px 150px #f54a2c, 240px 150px #e93420,
+          255px 150px #e63f2d, 270px 150px #eb4c3b, 285px 150px #eb3521,
+          300px 150px #e7402d, 315px 150px #e64736, 30px 165px #451312,
+          45px 165px #471716, 60px 165px #471c1b, 75px 165px #5a0100,
+          90px 165px #5a0604, 105px 165px #5e0a09, 120px 165px #840e0c,
+          135px 165px #881715, 150px 165px #a51d1a, 165px 165px #a72523,
+          180px 165px #a72e2c, 195px 165px #ed2805, 210px 165px #ec3110,
+          225px 165px #d9321e, 240px 165px #da3a29, 255px 165px #dd4837,
+          270px 165px #f44622, 285px 165px #f84c29, 300px 165px #fa5737,
+          45px 180px #550202, 60px 180px #640303, 75px 180px #6b0404,
+          90px 180px #770505, 105px 180px #862527, 120px 180px #8b282a,
+          135px 180px #9b2e2f, 150px 180px #ac2220, 165px 180px #bb2321,
+          180px 180px #c42a28, 195px 180px #ca2a22, 210px 180px #ce281f,
+          225px 180px #d61b11, 240px 180px #df3027, 255px 180px #e03f36,
+          270px 180px #eb342a, 285px 180px #f02c22, 60px 195px #490101,
+          75px 195px #580202, 90px 195px #5e0303, 105px 195px #722021,
+          120px 195px #7a2324, 135px 195px #8b292b, 150px 195px #9e1e1c,
+          165px 195px #ad211e, 180px 195px #b42220, 195px 195px #b6130b,
+          210px 195px #bd170f, 225px 195px #c21910, 240px 195px #ce1d14,
+          255px 195px #d61208, 270px 195px #df180e, 75px 210px #3b0000,
+          90px 210px #440101, 105px 210px #4e0202, 120px 210px #5d1a1b,
+          135px 210px #6d1f20, 150px 210px #8e1a19, 165px 210px #9c1e1b,
+          180px 210px #a3211f, 195px 210px #aa0c04, 210px 210px #b60e05,
+          225px 210px #b60d05, 240px 210px #c41108, 255px 210px #d11309,
+          90px 225px #5c0101, 105px 225px #580202, 120px 225px #640303,
+          135px 225px #660404, 150px 225px #6b1b1d, 165px 225px #7c1c1d,
+          180px 225px #882326, 195px 225px #830402, 210px 225px #8f0503,
+          225px 225px #960503, 240px 225px #a80705, 105px 240px #4d0101,
+          120px 240px #490202, 135px 240px #530202, 150px 240px #611819,
+          165px 240px #6d1819, 180px 240px #7c2023, 195px 240px #750301,
+          210px 240px #800402, 225px 240px #850402, 120px 255px #3d0000,
+          135px 255px #470101, 150px 255px #551415, 165px 255px #5e1415,
+          180px 255px #691a1c, 195px 255px #670100, 210px 255px #7a0301,
+          135px 270px #490202, 150px 270px #570202, 165px 270px #660202,
+          180px 270px #6e0101, 195px 270px #7e0202, 150px 285px #3d0202,
+          165px 285px #4d0101, 180px 285px #5e0202, 165px 300px #340000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contaier">
+      <div class="heart"></div>
+    </div>
+  </body>
+</html>
