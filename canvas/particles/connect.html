@@ -26,8 +26,7 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // const worker = new Worker('./works/random-move.js');
-    const worker = new Worker('../../works/random_trip.js');
+    const worker = new Worker('../works/random_trip.js');
     worker.onmessage = ev => {
       const data = ev.data;
       ctx.drawImage(data, 0, 0);

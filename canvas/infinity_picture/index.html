@@ -71,7 +71,7 @@
             resolve();
           };
           image.onerror = ev => reject();
-          image.src = '../../images/bg1.jpg';
+          image.src = '../images/bg1.jpg';
         });
       }
 
@@ -79,7 +79,7 @@
       repaintBackground() {
         const { width, height } = this.canvas;
         const disH = 5;
-        const worker = new Worker('../../works/scroll.js');
+        const worker = new Worker('../works/scroll.js');
         worker.onmessage = ev => {
           const data = ev.data;
           // this.nextBgData = data;

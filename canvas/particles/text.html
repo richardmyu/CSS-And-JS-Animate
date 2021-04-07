@@ -37,14 +37,14 @@
 
 
   <script type="module">
-    import { ParticleTextController } from '../../utils/controllers.js';
+    import { ParticleTextController } from '../utils/controllers.js';
     const inputText = document.getElementById('input-text');
     const canvas = document.getElementById('canvas');
     let ptc = null;
 
     // 使用 worker
     if (window.OffscreenCanvas && window.Worker) {
-      const worker = new Worker('../../works/particle_text.js', { type: 'module' });
+      const worker = new Worker('../works/particle_text.js', { type: 'module' });
       const offCanvas = canvas.transferControlToOffscreen()
       worker.postMessage({
         type: 'init',
