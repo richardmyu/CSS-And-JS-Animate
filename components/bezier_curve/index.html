@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      box-sizing: border-box;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .layout {
+      display: flex;
+      align-items: center;
+      width: 80%;
+      height: 80%;
+    }
+
+    .bg-grid {
+      box-sizing: border-box;
+      position: relative;
+      flex: 1;
+      height: 100%;
+      border: 1px dotted skyblue;
+    }
+
+    .bg-grid>.bg-svg {
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .place-area {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .ctrl-area {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      padding: 10px;
+      width: 200px;
+      height: 100%;
+      border: 1px dotted skyblue;
+    }
+
+    .spot {
+      box-sizing: border-box;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      box-shadow: 1px 1px 3px #999;
+      font-size: 12px;
+      background-color: white;
+    }
+
+    .spot:hover {
+      box-shadow: 1px 1px 1px #666;
+      cursor: pointer;
+      z-index: 9;
+    }
+
+    .spot::before {
+      display: block;
+      width: fit-content;
+      padding: 5px;
+      content: attr(data-name)'\a''ab:\00A0'attr(data-abcoord)'\a''re:\00A0'attr(data-recoord);
+      transform: translateY(10px);
+    }
+
+    .spot:hover::before {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 1px 1px 3px #aaa;
+    }
+
+    [data-id=spot-start] {
+      left: 30%;
+      top: 70%;
+    }
+
+    [data-id=spot-end] {
+      left: 80%;
+      top: 60%;
+    }
+
+    [data-id=spot-start-ctrl] {
+      left: 40%;
+      top: 50%;
+    }
+
+    [data-id=spot-end-ctrl] {
+      left: 55%;
+      top: 60%;
+    }
+
+    .cp {
+      cursor: pointer;
+    }
+
+    .none {
+      display: none !important;
+    }
+
+    .hide {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .svg-path {
+      stroke-width: 2px;
+      stroke: #999;
+      fill: none;
+    }
+
+    .svg-path.dash {
+      stroke-dasharray: 2 2;
+    }
+
+    #body-bg-grid>path {
+      fill: none;
+      stroke: #ddd;
+      stroke-width: 1;
+      /* stroke-opacity: 0.5; */
+    }
+
+    .btn-box {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-box>button:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="layout">
+      <div class="bg-grid">
+        <svg class="bg-svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="body-bg-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 0 0 L 20 0 L 0 0 L 0 20 z"></path>
+            </pattern>
+          </defs>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#body-bg-grid)"></rect>
+        </svg>
+
+        <!-- 三次贝塞尔路径曲线 -->
+        <div id="workbench-cubic" class="place-area">
+          <!-- 开始点 -->
+          <div data-id="spot-start" class="spot place-spot" data-name="S"></div>
+          <!-- 结束点 -->
+          <div data-id="spot-end" class="spot place-spot" data-name="E"></div>
+          <!-- 开始点的控制点 -->
+          <div data-id="spot-start-ctrl" class="spot ctrl-spot" data-name="C1"></div>
+          <!-- 结束点的控制点 -->
+          <div data-id="spot-end-ctrl" class="spot ctrl-spot" data-name="C2"></div>
+
+          <svg data-id="svg" class="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+            <path data-id="svg-path" class="svg-path"></path>
+            <path data-id="svg-path-start" class="svg-path dash"></path>
+            <path data-id="svg-path-end" class="svg-path dash"></path>
+          </svg>
+        </div>
+
+        <!-- 二次贝塞尔路径曲线 -->
+        <div id="workbench-quadratic" class="place-area none">
+          <!-- 开始点 -->
+          <div data-id="spot-start" class="spot place-spot" data-name="S"></div>
+          <!-- 结束点 -->
+          <div data-id="spot-end" class="spot place-spot" data-name="E"></div>
+          <!-- 控制点 -->
+          <div data-id="spot-ctrl" class="spot ctrl-spot" data-name="C"></div>
+
+          <svg data-id="svg" class="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+            <path data-id="svg-path" class="svg-path"></path>
+            <path data-id="svg-path-start" class="svg-path dash"></path>
+            <path data-id="svg-path-end" class="svg-path dash"></path>
+          </svg>
+        </div>
+
+        <!-- 归一化三次贝塞尔曲线 -->
+        <div id="workbench-normalization" class="place-area none">
+          <!-- 开始点 -->
+          <div data-id="spot-start" class="spot place-spot" data-name="S"></div>
+          <!-- 结束点 -->
+          <div data-id="spot-end" class="spot place-spot" data-name="E"></div>
+          <!-- 开始点的控制点 -->
+          <div data-id="spot-start-ctrl" class="spot ctrl-spot" data-name="C1"></div>
+          <!-- 结束点的控制点 -->
+          <div data-id="spot-end-ctrl" class="spot ctrl-spot" data-name="C2"></div>
+
+          <svg data-id="svg" class="svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+            <path data-id="svg-path" class="svg-path"></path>
+            <path data-id="svg-path-start" class="svg-path dash"></path>
+            <path data-id="svg-path-end" class="svg-path dash"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="ctrl-area">
+        <label><input type="radio" name="type" value="3" checked> 三次贝塞尔</label>
+        <label><input type="radio" name="type" value="2"> 二次贝塞尔</label>
+        <label><input type="radio" name="type" value="1"> 三次归一化</label>
+
+        <div class="btn-box">
+          <button id="btn-copy-abs">复制绝对路径</button>
+          <button id="btn-copy-rel">复制相对路径</button>
+          <button id="btn-copy-fun" disabled>复制函数</button>
+        </div>
+
+        <input id="tool-input" class="hide" type="text">
+      </div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>

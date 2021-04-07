@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+    }
+
+    .container:not(:last-of-type) {
+      margin-right: 30px;
+    }
+
+    .container:not(:last-of-type)::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 100%;
+      right: -15px;
+      border-right: 1px dashed skyblue;
+    }
+
+    textarea {
+      resize: vertical;
+      padding: 5px 10px;
+      width: 500px;
+      height: 160px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="container">
+      <header>
+        <h3>字符/UTF-8/Unicode 转换</h3>
+      </header>
+      <section>
+        <h4>字符</h4>
+        <textarea id="chars" placeholder="字符"></textarea>
+      </section>
+      <section>
+        <h4>UTF-8</h4>
+        <textarea id="utf8" placeholder="UTF-8编码"></textarea>
+      </section>
+      <section>
+        <h4>Unicode</h4>
+        <textarea id="unicode" placeholder="Unicode编码"></textarea>
+      </section>
+    </div>
+  </div>
+
+  <script type="module">
+    import CharCode from './index.js';
+
+    const charCode = new CharCode();
+    const elUtf8 = document.getElementById('utf8');
+    const elUnicode = document.getElementById('unicode');
+    const elChars = document.getElementById('chars');
+
+    // 输入字符
+    elChars.oninput = ev => {
+      const string = ev.target.value.trim();
+      ev.target.value = string;
+
+      const res = charCode.charsToUnicode(string);
+      elUnicode.value = res.string;
+      elUtf8.value = charCode.unicodeToUtf8(res.codes).string;
+    };
+
+    // 输入utf-8编码
+    elUtf8.oninput = ev => {
+      const string = ev.target.value.trim();
+      ev.target.value = string;
+
+      const res = charCode.utf8ToUnicode(string);
+      elUnicode.value = res.string;
+      elChars.value = charCode.unicodeToChars(res.codes).string;
+    };
+
+    // 输入unicode
+    elUnicode.oninput = ev => {
+      const string = ev.target.value.trim();
+      ev.target.value = string;
+
+      const res = charCode.unicodeToChars(string)
+      elUtf8.value = charCode.unicodeToUtf8(res.codes).string;
+      elChars.value = res.string;
+    };
+  </script>
+</body>
+
+</html>
