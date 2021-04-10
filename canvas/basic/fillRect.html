@@ -1,56 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>canvas</title>
-  </head>
-  <body>
-    <div class="stage">
-      <canvas
-        id="myCanvas"
-        width="600"
-        height="600"
-        style="border:1px solid #000000;"
-      ></canvas>
-    </div>
-    <script>
-      let canvas = document.querySelector("#myCanvas");
-      // console.log(canvas);
-      // 创建 context 对象
-      let ctx = canvas.getContext("2d");
-      ctx.fillStyle = "#ff0000";
-      // 填充
-      // params: x, y, width, height
-      ctx.fillRect(0, 0, 150, 75);
-      ctx.fillRect(150, 75, 150, 75);
-      ctx.fillRect(300, 150, 150, 75);
-      ctx.fillRect(450, 225, 150, 75);
 
-      ctx.fillStyle = "yellow";
-      ctx.fillRect(0, 75, 150, 75);
-      ctx.fillRect(150, 150, 150, 75);
-      ctx.fillRect(300, 225, 150, 75);
-      ctx.fillRect(450, 300, 150, 75);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>canvas</title>
+</head>
 
-      ctx.fillStyle = "blue";
-      ctx.fillRect(0, 150, 150, 75);
-      ctx.fillRect(150, 225, 150, 75);
-      ctx.fillRect(300, 300, 150, 75);
-      ctx.fillRect(450, 375, 150, 75);
+<body>
+  <div class="stage">
+    <canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
 
-      ctx.fillStyle = "green";
-      ctx.fillRect(0, 225, 150, 75);
-      ctx.fillRect(150, 300, 150, 75);
-      ctx.fillRect(300, 375, 150, 75);
-      ctx.fillRect(450, 450, 150, 75);
-      
-      ctx.fillStyle = "cyan";
-      ctx.fillRect(0, 300, 150, 75);
-      ctx.fillRect(150, 375, 150, 75);
-      ctx.fillRect(300, 450, 150, 75);
-      ctx.fillRect(450, 525, 150, 75);
-    </script>
-  </body>
+    <canvas id="maCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
+
+    <canvas id="mbCanvas" width="600" height="600" style="border:1px solid #000000;"></canvas>
+  </div>
+  <script>
+    let canvas = document.querySelector("#myCanvas");
+    // console.log(canvas);
+    // 创建 context 对象
+    let ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "blue";
+    // 填充
+    // params: x, y, width, height
+    ctx.fillRect(450, 0, 150, 75);
+
+    ctx.fillStyle = "green";
+    ctx.fillRect(300, 0, 150, 75);
+    ctx.fillRect(450, 75, 150, 75);
+
+    ctx.fillStyle = "cyan";
+    ctx.fillRect(150, 0, 150, 75);
+    ctx.fillRect(300, 75, 150, 75);
+    ctx.fillRect(450, 150, 150, 75);
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(0, 0, 150, 75);
+    ctx.fillRect(150, 75, 150, 75);
+    ctx.fillRect(300, 150, 150, 75);
+    ctx.fillRect(450, 225, 150, 75);
+
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(0, 75, 150, 75);
+    ctx.fillRect(150, 150, 150, 75);
+    ctx.fillRect(300, 225, 150, 75);
+    ctx.fillRect(450, 300, 150, 75);
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0, 150, 150, 75);
+    ctx.fillRect(150, 225, 150, 75);
+    ctx.fillRect(300, 300, 150, 75);
+    ctx.fillRect(450, 375, 150, 75);
+
+    ctx.fillStyle = "green";
+    ctx.fillRect(0, 225, 150, 75);
+    ctx.fillRect(150, 300, 150, 75);
+    ctx.fillRect(300, 375, 150, 75);
+    ctx.fillRect(450, 450, 150, 75);
+
+    ctx.fillStyle = "cyan";
+    ctx.fillRect(0, 300, 150, 75);
+    ctx.fillRect(150, 375, 150, 75);
+    ctx.fillRect(300, 450, 150, 75);
+    ctx.fillRect(450, 525, 150, 75);
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(0, 375, 150, 75);
+    ctx.fillRect(150, 450, 150, 75);
+    ctx.fillRect(300, 525, 150, 75);
+
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(0, 450, 150, 75);
+    ctx.fillRect(150, 525, 150, 75);
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0, 525, 150, 75);
+
+
+  </script>
+  <script>
+    let canvas_ma = document.querySelector("#maCanvas");
+
+    let ctx_ma = canvas_ma.getContext("2d");
+    for (var i = 0; i < 6; i++) {
+      for (var j = 0; j < 6; j++) {
+        ctx_ma.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ',' +
+          Math.floor(255 - 42.5 * j) + ',0)';
+        ctx_ma.fillRect(j * 100, i * 100, 100, 100);
+      }
+    }
+  </script>
+  <script>
+    let canvas_mb = document.querySelector("#mbCanvas");
+    let ctx_mb = canvas_mb.getContext("2d");
+    const MB_MOIUNT = 24;
+    const MB_STEP = 255 / MB_MOIUNT;
+    // const MB_WH = 600 / MB_MOIUNT;
+    const MB_WH = 600 / 118;
+    for (var i = 0; i < MB_MOIUNT; i++) {
+      for (var j = 0; j < MB_MOIUNT; j++) {
+        for (var z = 0; z < MB_MOIUNT; z++) {
+          ctx_mb.fillStyle = 'rgb(' + Math.floor(255 - MB_STEP * i) + ',' +
+            Math.floor(255 - MB_STEP * j) + ',' + Math.floor(255 - MB_STEP * z) + ')';
+          ctx_mb.fillRect(j * MB_WH, i * MB_WH, MB_WH, MB_WH);
+        }
+      }
+    }
+  </script>
+</body>
+
 </html>
