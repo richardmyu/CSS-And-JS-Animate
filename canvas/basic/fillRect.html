@@ -9,28 +9,24 @@
   <style>
     .canvas {
       border: 1px solid #000000;
-      border: 1px solid #000000;
     }
   </style>
 </head>
 
 <body>
-  <div class="stage">
-    <canvas id="canvas_first" width="600" height="600" class="canvas"></canvas>
+  <canvas id="canvas_first" width="600" height="600" class="canvas"></canvas>
 
-    <canvas id="canvas_two" width="600" height="600" class="canvas"></canvas>
+  <canvas id="canvas_two" width="600" height="600" class="canvas"></canvas>
 
-    <canvas id="canvas_three" width="600" height="600" class="canvas"></canvas>
+  <canvas id="canvas_three" width="600" height="600" class="canvas"></canvas>
 
-    <canvas id="canvas_four" width="600" height="600" class="canvas"></canvas>
+  <canvas id="canvas_four" width="600" height="600" class="canvas"></canvas>
 
-    <canvas id="canvas_five" width="600" height="600" class="canvas"></canvas>
+  <canvas id="canvas_five" width="600" height="600" class="canvas"></canvas>
 
-    <canvas id="canvas_six" width="600" height="600" class="canvas"></canvas>
-  </div>
+  <canvas id="canvas_six" width="600" height="600" class="canvas"></canvas>
   <script>
     let canvas = document.querySelector("#canvas_first");
-    // console.log(canvas);
     // 创建 context 对象
     let ctx = canvas.getContext("2d");
 
@@ -110,19 +106,20 @@
     const THREE_STEP = 255 / THREE_MOIUNT;
     // const THREE_WH = 600 / THREE_MOIUNT;
     const THREE_WH = 5;
-    const TREE_COLORS = [];
+    const THREE_COLORS = [];
+
     for (var x = 0; x < THREE_MOIUNT; x++) {
       for (var y = 0; y < THREE_MOIUNT; y++) {
         for (var z = 0; z < THREE_MOIUNT; z++) {
           let str = 'rgb(' + (255 - THREE_STEP * x) + ',' + (255 - THREE_STEP * y) + ',' + (255 - THREE_STEP * z) + ')';
-          TREE_COLORS.push(str);
+          THREE_COLORS.push(str);
         }
       }
     }
     // 24^3 < 120^2
     for (let i = 0; i < 120; i++) {
       for (let j = 0; j < 120; j++) {
-        ctx_three.fillStyle = TREE_COLORS[(i + 1) * (j + 1)];
+        ctx_three.fillStyle = THREE_COLORS[(i + 1) * (j + 1)];
         ctx_three.fillRect(j * THREE_WH, i * THREE_WH, THREE_WH, THREE_WH);
       }
     }
