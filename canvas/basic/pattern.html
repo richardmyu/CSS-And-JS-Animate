@@ -3,25 +3,32 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .canvas {
+      border: 1px solid #666666;
+    }
+  </style>
 </head>
 
 <body>
-  <canvas id="myCanvas" width="600" height="500" style="border:1px solid #000000;"></canvas>
-
+  <canvas id="canvas" class="canvas" width="600" height="500"></canvas>
   <script>
-    let ctx = document.querySelector("#myCanvas").getContext("2d");
-    let img = new Image();
+    let ctx = document.getElementById('canvas').getContext('2d');
 
+    let img = new Image();
+    img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
+
+    // 确保设置图案之前图像已经装载完毕
     img.onload = function () {
       var pattern = ctx.createPattern(img, 'repeat');
       ctx.fillStyle = pattern;
       ctx.fillRect(0, 0, 600, 500);
     };
-    img.src = 'https://mdn.mozillademos.org/files/222/Canvas_createpattern.png';
   </script>
+
 </body>
 
 </html>
