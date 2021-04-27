@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>path</title>
+</head>
+
+<body>
+  <svg version="1.1" baseProfile="full" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 10" />
+
+    <!-- Points -->
+    <circle cx="10" cy="10" r="2" fill="red" />
+
+  </svg>
+  <hr />
+
+  <svg version="1.1" baseProfile="full" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 10 H 90 V 90 H 10 L 10 10" />
+
+    <!-- Points -->
+    <circle cx="10" cy="10" r="2" fill="red" />
+    <circle cx="90" cy="90" r="2" fill="red" />
+    <circle cx="90" cy="10" r="2" fill="red" />
+    <circle cx="10" cy="90" r="2" fill="red" />
+
+  </svg>
+  <hr />
+
+  <svg version="1.1" baseProfile="full" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 10 h 80 v 80 h -80 Z" fill="transparent" stroke="black" />
+
+  </svg>
+  <hr />
+
+  <svg version="1.1" baseProfile="full" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent" />
+    <path d="M70 10 C 70 20, 120 20, 120 10" stroke="black" fill="transparent" />
+    <path d="M130 10 C 120 20, 180 20, 170 10" stroke="black" fill="transparent" />
+    <path d="M10 60 C 20 80, 40 80, 50 60" stroke="black" fill="transparent" />
+    <path d="M70 60 C 70 80, 110 80, 110 60" stroke="black" fill="transparent" />
+    <path d="M130 60 C 120 80, 180 80, 170 60" stroke="black" fill="transparent" />
+    <path d="M10 110 C 20 140, 40 140, 50 110" stroke="black" fill="transparent" />
+    <path d="M70 110 C 70 140, 110 140, 110 110" stroke="black" fill="transparent" />
+    <path d="M130 110 C 120 140, 180 140, 170 110" stroke="black" fill="transparent" />
+
+  </svg>
+  <hr />
+
+  <svg version="1.1" baseProfile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+
+    <circle cx="10" cy="80" r="3" fill="red"></circle>
+
+    <path d="M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80" stroke="black" fill="transparent" />
+
+    <circle cx="95" cy="80" r="3" fill="red"></circle>
+    <circle cx="180" cy="80" r="3" fill="red"></circle>
+
+  </svg>
+  <hr />
+</body>
+
+</html>
