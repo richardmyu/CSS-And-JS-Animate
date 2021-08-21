@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>auto-color</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .heart {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .heart::before {
+      content: "";
+      display: block;
+      /* margin: -10px 0 0 -10px; */
+      width: 10px;
+      height: 10px;
+      transition: all 400ms;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <body>
+    <!-- <div class="header">
+      <form>
+        <label for="scale">大小(n x n)</label>
+        <input name="scale" id="scale" value=""><br>
+        <label for="start-color">起始色</label>
+        <input name="start-color" id="start-color" value=""><br>
+        <label for="end-color">终止色</label>
+        <input name="end-color" id="end-color" value=""><br>
+      </form>
+    </div> -->
+    <div class="contaier">
+      <div class="heart"></div>
+    </div>
+  </body>
+  <script>
+    // TODO: 色块分布计算（给定正方形大小，自动计算对于心型的大小及对应色块的分布位置）
+    // 1.
+    // TODO: 颜色分布计算（给定起始和终止色，自动计算各色块的颜色值）
+    // 1.为了使颜色看起来更富有变化感，颜色需要呈梯度变化，在沿主视觉方向，为大梯度变化，垂直主视觉方向，为小梯度变化；
+    // 2.设定主视觉为 8 个方位 + 中心扩散，共 9 个选线；
+    // 3.对输入颜色的的限制以及转换；
+    // TODO: 填充块比较多，也许可先整体染色，再扣除不需要染色的部分
+    const color = '20px 10px #8e1a19, 30px 10px #ac0500, 50px 10px #f73f0c,60px 10px #fa5f27, 10px 20px #740100, 20px 20px #8e0500,30px 20px #8e1918, 40px 20px #ca1300, 50px 20px #f34f2b,60px 20px #df351f, 70px 20px #f77c2a, 10px 30px #4b0000,20px 30px #690100, 30px 30px #8e0f0b, 40px 30px #bf1000,50px 30px #f84010, 60px 30px #f04222, 70px 30px #fa5724,10px 40px #451312, 20px 40px #5a0100, 30px 40px #840e0c,40px 40px #a51d1a, 50px 40px #ed2805, 60px 40px #d9321e,70px 40px #f44622, 20px 50px #3b0000, 30px 50px #5d1a1b,40px 50px #8e1a19, 50px 50px #a80700, 60px 50px #b90a00, 30px 60px #3d0000, 40px 60px #551410, 50px 60px #670100,40px 70px #340000;'
+    document.styleSheets[0].addRule('.heart::before', `box-shadow: ${color}`)
+  </script>
+</body>
+
+</html>
