@@ -10,4 +10,4 @@
 
 | #   | Porject         | Live Demo |
 | --- | --------------- | --------- |
-| 01  | Expanding Cards | Live Demo |
+| 01  | Expanding Cards | [Live Demo](https://github.com/richardmyu/css-and-js-animate/blob/master/50-projects-in-50-day/01-expanding-cards/index.html) |
