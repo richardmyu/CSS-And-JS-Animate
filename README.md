@@ -8,6 +8,7 @@
 
 节选自 [50 Projects in 50 Days - HTML/CSS and JavaScript](https://github.com/bradtraversy/50projects50days)
 
-| #   | Porject         | Live Demo |
-| --- | --------------- | --------- |
+| #   | Porject         | Live Demo                                                                                                        |
+| --- | --------------- | ---------------------------------------------------------------------------------------------------------------- |
 | 01  | Expanding Cards | [Live Demo](https://richardmyu.github.io/css-and-js-animate/50-projects-in-50-day/01-expanding-cards/index.html) |
+| 02  | Progress Steps  | [Live Demo](https://richardmyu.github.io/css-and-js-animate/50-projects-in-50-day/02-progress-steps/index.html)  |
