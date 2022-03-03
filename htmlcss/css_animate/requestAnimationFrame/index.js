@@ -24,7 +24,7 @@ function step(timestamp) {
   }
 }
 
-// window.requestAnimationFrame(step);
+window.requestAnimationFrame(step);
 // let init = 0;
 // setInterval(function () {
 //   init++;

@@ -55,16 +55,12 @@
           "transform:rotate( 360deg ) }" +
           "}";
 
-        // console.log(document.styleSheets);
         if (document.styleSheets && document.styleSheets.length) {
-          // console.log(document.styleSheets);
           document.styleSheets[0].insertRule(keyframes, 0);
         } else {
-          // console.log(document.styleSheets);
           var s = document.createElement("style");
           s.innerHTML = keyframes;
           document.getElementsByTagName("head")[0].appendChild(s);
-          // console.log(document.styleSheets[0].cssRules[0].cssRules);
           document.getElementsByTagName("body")[0].appendChild(elm);
         }
       }
