@@ -20,7 +20,7 @@ const createEle = function () {
   animateItem.innerText = '' + num;
 
   const syntxItem = document.createElement('code');
-  syntxItem.innerText = 'stack.push(' + num + ')';
+  syntxItem.innerText = 'queue.enqueue(' + num + ')';
 
   activatedAnima(animateItem, syntxItem);
 
@@ -31,7 +31,7 @@ const activatedAnima = function (animateItem, syntxItem) {
   // aniamte-item 进入动画
   animateItem.style.animation = 'anima-in 2s ease-out';
   let aniKeyframes = `@keyframes ${'anima-in'}{
-    from { transform: translate(0, -${360 - animateStack.size() * 40}px); }
+    from { transform: translate(0, -${360 - animateQueue.size() * 40}px); }
     to { transform: translate(0, 0); } }`;
 
   // syntx-item 进入动画
@@ -45,13 +45,13 @@ const activatedAnima = function (animateItem, syntxItem) {
 
 const unactivetedAnima = function (animateItem, syntxItem) {
   // aniamte-item 离开动画
-  animateItem.style.animation = 'anima-out 2s ease-in';
+  animateItem.style.animation = 'anima-out 1s ease-in';
   let aniKeyframes = `@keyframes ${'anima-out'}{
     from { transform: translate(0, 0); }
-    to { transform: translate(0, -${360 - animateStack.size() * 40}px); } }`;
+    to { transform: translate(0, ${animateQueue.size() * 40}px); } }`;
 
   // syntx-item 离开动画
-  syntxItem.style.animation = 'syntx-hidden 2s ease-in';
+  syntxItem.style.animation = 'syntx-hidden 1s ease-in';
   let asybKeyframes = `@keyframes ${'syntx-hidden'}{
     from { opacity: 1; }
     to { opacity: 0; } }`;
@@ -63,37 +63,37 @@ const unactivetedAnima = function (animateItem, syntxItem) {
 /**********************************
  *           事件                 *
  **********************************/
-const Stack = (function () {
+const Queue = (function () {
   const items = new WeakMap();
 
-  class Stack {
+  class Queue {
     constructor() {
       items.set(this, []);
     }
 
-    push(ele) {
-      let s = items.get(this);
-      s.push(ele);
+    enqueue(ele) {
+      let q = items.get(this);
+      q.push(ele);
     }
 
-    pop() {
-      let s = items.get(this);
-      return s.pop();
+    dequeue() {
+      let q = items.get(this);
+      return q.shift();
     }
 
-    peek() {
-      let s = items.get(this);
-      return s[s.length - 1] ? s[s.length - 1].innerText : null;
+    front() {
+      let q = items.get(this);
+      return q[0] ? q[0].innerText : null;
     }
 
     isEmpty() {
-      let s = items.get(this);
-      return s.length === 0;
+      let q = items.get(this);
+      return q.length === 0;
     }
 
     size() {
-      let s = items.get(this);
-      return s.length;
+      let q = items.get(this);
+      return q.length;
     }
 
     clear() {
@@ -101,47 +101,47 @@ const Stack = (function () {
     }
 
     print() {
-      let s = items.get(this);
+      let q = items.get(this);
       let str = '';
-      s.forEach(item => str += item.innerText + '\n');
+      q.forEach(item => str += item.innerText + '\n');
       alert(str || null);
     }
   }
 
-  return Stack;
+  return Queue;
 })();
 
 
-let animateStack = new Stack();
-let syntxStack = new Stack();
+let animateQueue = new Queue();
+let syntxQueue = new Queue();
 
-const eventPush = function () {
-  console.log('-- push --');
-  let size = animateStack.size();
+const eventEnqueue = function () {
+  console.log('-- enqueue --');
+  let size = animateQueue.size();
   if (size > 7) {
-    alert('栈已满, 若要继续添加, 请先清空栈');
+    alert('队列已满, 若要继续添加, 请先清空');
     return;
   }
 
   let [ani, syn] = createEle();
-  animateStack.push(ani);
-  syntxStack.push(syn);
+  animateQueue.enqueue(ani);
+  syntxQueue.enqueue(syn);
 
   // 视图更新
   animateBox.appendChild(ani);
   syntxBox.appendChild(syn)
 }
 
-const eventPop = function () {
-  console.log('-- pop --');
-  let size = animateStack.size();
+const eventDequeue = function () {
+  console.log('-- dequeue --');
+  let size = animateQueue.size();
   if (size === 0) {
     alert('栈内没有元素');
     return;
   }
 
-  let animateItem = animateStack.pop();
-  let syntxItem = syntxStack.pop();
+  let animateItem = animateQueue.dequeue();
+  let syntxItem = syntxQueue.dequeue();
 
   // 先处理动画
   unactivetedAnima(animateItem, syntxItem);
@@ -151,28 +151,28 @@ const eventPop = function () {
     animateBox.removeChild(animateItem);
     syntxBox.removeChild(syntxItem);
     clearTimeout(timer);
-  }, 2000);
+  }, 1000);
 }
 
-const eventPeek = function () {
-  console.log('-- peek --');
-  alert(animateStack.peek() || null);
+const eventFront = function () {
+  console.log('-- front --');
+  alert(animateQueue.front() || null);
 }
 
 const eventIsEmpty = function () {
   console.log('-- isEmpty --');
-  alert(animateStack.isEmpty());
+  alert(animateQueue.isEmpty());
 }
 
 const eventSize = function () {
   console.log('-- size --');
-  alert(animateStack.size());
+  alert(animateQueue.size());
 }
 
 const eventClear = function () {
   console.log('-- clear --');
-  animateStack.clear();
-  syntxStack.clear();
+  animateQueue.clear();
+  syntxQueue.clear();
 
   let oldAnimateList = animateBox.children;
   [...oldAnimateList].forEach(item => animateBox.removeChild(item));
@@ -183,18 +183,18 @@ const eventClear = function () {
 
 const eventPrint = function () {
   console.log('-- print --');
-  animateStack.print();
+  animateQueue.print();
 }
 
 const eventObj = {
-  'push': eventPush,
-  'pop': eventPop,
-  'peek': eventPeek,
+  'enqueue': eventEnqueue,
+  'dequeue': eventDequeue,
+  'front': eventFront,
   'isEmpty': eventIsEmpty,
   'size': eventSize,
   'clear': eventClear,
   'print': eventPrint,
-  'list': ['push', 'pop', 'peek', 'isEmpty', 'size', 'clear', 'print'],
+  'list': ['enqueue', 'dequeue', 'front', 'isEmpty', 'size', 'clear', 'print'],
   'has': function (s) {
     return eventObj.list.includes(s);
   }
