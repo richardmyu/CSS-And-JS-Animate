@@ -1,0 +1,75 @@
+@import url('./normalize.css');
+
+html, body {
+  width: 100%;
+  min-width: 1080px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+  font-family: "Consolas";
+  font-size: 20px;
+  background: linear-gradient(to bottom, rgba(136, 173, 166, 1) 0%, rgba(136, 173, 166, 0.6) 100%);
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:link {
+  color: dodgerblue;
+
+}
+
+a:visited {
+  color: rgb(85, 84, 84);
+}
+
+a:hover {
+  color: yellow;
+}
+
+a:active {
+  color: darkolivegreen;
+}
+
+
+
+
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.display-box {
+  width: 100%;
+  height: 100%;
+}
+
+.display-box header {
+  height: 80px;
+  padding: 20px 0;
+  text-align: center;
+  background: linear-gradient(to top, rgba(72, 198, 239, 0.5) 0%, rgba(111, 134, 214, 0.7) 100%);
+}
+
+.display-box article {
+  width: 800px;
+  padding: 0 80px 60px;
+  margin: 0 auto;
+}
+
+.display-box article section {
+  margin-bottom: 50px;
+}
+
+.display-box article section:last-child {
+  margin-bottom: 0;
+}
