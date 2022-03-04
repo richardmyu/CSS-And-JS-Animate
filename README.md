@@ -16,3 +16,5 @@
 ## datastructures-algorithms
 
 [栈](https://richardmyu.github.io/css-and-js-animate/datastructures-algorithms/stack/index.html)
+
+[队列](https://richardmyu.github.io/css-and-js-animate/datastructures-algorithms/queue/index.html)
