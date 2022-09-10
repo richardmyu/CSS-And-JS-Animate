@@ -6,11 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>grid-template-areas</title>
+  <link rel="stylesheet" href="./index.css" />
   <style>
-    span {
-      font-size: 2em;
-    }
-
     /*
     * grid-template-areas属性用于定义区域
     * 一个区域由单个或多个单元格组成
@@ -18,8 +15,6 @@
     * 如果某些区域不需要利用，则使用"点"（.）表示
     */
     .container-1 {
-      width: 600px;
-      display: grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       grid-template-areas: 'a b c'
@@ -28,8 +23,6 @@
     }
 
     .container-2 {
-      width: 600px;
-      display: grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       grid-template-areas: 'a a a'
@@ -38,55 +31,11 @@
     }
 
     .container-3 {
-      width: 600px;
-      display: grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
       grid-template-areas: 'a . c'
         'd . f'
         'g . i';
-    }
-
-    .item {
-      font-size: 2em;
-      text-align: center;
-      border: 1px solid #e5e4e9;
-    }
-
-    .item-1 {
-      background-color: #ef342a;
-    }
-
-    .item-2 {
-      background-color: #f68f26;
-    }
-
-    .item-3 {
-      background-color: #4ba946;
-    }
-
-    .item-4 {
-      background-color: #0376c2;
-    }
-
-    .item-5 {
-      background-color: #c077af;
-    }
-
-    .item-6 {
-      background-color: #f8d29d;
-    }
-
-    .item-7 {
-      background-color: #b5a87f;
-    }
-
-    .item-8 {
-      background-color: #d0e4a9;
-    }
-
-    .item-9 {
-      background-color: #4dc7ec;
     }
   </style>
 </head>
@@ -95,7 +44,7 @@
   <span>grid-template-areas: 'a b c'
     'd e f'
     'g h i';</span>
-  <div class="container-1">
+  <div class="container container-1">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
     <div class="item item-3">3</div>
@@ -109,7 +58,7 @@
   <span>grid-template-areas: 'a a a'
     'b b b'
     'c c c';</span>
-  <div class="container-2">
+  <div class="container container-2">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
     <div class="item item-3">3</div>
@@ -123,7 +72,7 @@
   <span>grid-template-areas: 'a . c'
     'd . f'
     'g . i';</span>
-  <div class="container-3">
+  <div class="container container-3">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
     <div class="item item-3">3</div>

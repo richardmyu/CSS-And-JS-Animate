@@ -6,11 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>place-content</title>
+  <link rel="stylesheet" href="./index.css" />
   <style>
-    span {
-      font-size: 2em;
-    }
-
     /*
     * justify-content 属性是整个内容区域在容器里面的水平位置（左中右）
     * align-content 属性是整个内容区域的垂直位置（上中下）
@@ -25,9 +22,7 @@
     * place-content 属性是 align-content 属性和 justify-content 属性的合并简写形式
     */
     .container {
-      width: 600px;
       height: 200px;
-      display: grid;
       grid-template-columns: 50px 50px 50px;
       grid-template-rows: 50px 50px 50px;
     }
@@ -114,48 +109,6 @@
 
     .container-3-7 {
       place-content: space-evenly;
-    }
-
-    .item {
-      font-size: 2em;
-      text-align: center;
-      border: 1px solid #e5e4e9;
-    }
-
-    .item-1 {
-      background-color: #ef342a;
-    }
-
-    .item-2 {
-      background-color: #f68f26;
-    }
-
-    .item-3 {
-      background-color: #4ba946;
-    }
-
-    .item-4 {
-      background-color: #0376c2;
-    }
-
-    .item-5 {
-      background-color: #c077af;
-    }
-
-    .item-6 {
-      background-color: #f8d29d;
-    }
-
-    .item-7 {
-      background-color: #b5a87f;
-    }
-
-    .item-8 {
-      background-color: #d0e4a9;
-    }
-
-    .item-9 {
-      background-color: #4dc7ec;
     }
   </style>
 </head>
