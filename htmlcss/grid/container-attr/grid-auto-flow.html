@@ -5,31 +5,55 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>minmax</title>
-  <link rel="stylesheet" href="./index.css" />
+  <title>grid-auto-flow</title>
+  <link rel="stylesheet" href="../index.css" />
   <style>
     /*
-    * minmax()函数产生一个长度范围，
-    * 表示长度就在这个范围之中。
-    * 它接受两个参数，分别为最小值和最大值。
-    * (优先取最大值)
+    * 顺序由 grid-auto-flow 属性决定，
+    * row，先行后列 【默认值】
+    * column，先列后行
+    *
+    * row dense
+    * column dense
+    * 两个值主要用于，
+    * 某些项目指定位置以后，
+    * 剩下的项目怎么自动放置。
     */
+    .container {
+      grid-template-columns: 50px 50px 50px;
+      grid-template-rows: 50px 50px 50px;
+    }
+
     .container-1 {
-      grid-template-columns: 1fr 1fr minmax(100px, 1fr);
+      grid-auto-flow: row;
     }
 
     .container-2 {
-      grid-template-columns: 1fr 2fr minmax(100px, 1fr);
+      grid-auto-flow: column;
     }
 
     .container-3 {
-      grid-template-columns: 100px 1fr minmax(100px, 1fr);
+      grid-auto-flow: row dense;
+    }
+
+    .container-4 {
+      grid-auto-flow: column dense;
+    }
+
+    .item-1 {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    .item-2 {
+      grid-column-start: 1;
+      grid-column-end: 3;
     }
   </style>
 </head>
 
 <body>
-  <span>grid-template-columns: 1fr 1fr minmax(100px, 1fr);</span>
+  <span>grid-auto-flow: row;</span>
   <div class="container container-1">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
@@ -41,7 +65,7 @@
     <div class="item item-8">8</div>
     <div class="item item-9">9</div>
   </div>
-  <span>grid-template-columns: 1fr 2fr minmax(100px, 1fr);</span>
+  <span>grid-auto-flow: column;</span>
   <div class="container container-2">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
@@ -53,8 +77,20 @@
     <div class="item item-8">8</div>
     <div class="item item-9">9</div>
   </div>
-  <span>grid-template-columns: 100px 1fr minmax(100px, 1fr);</span>
+  <span>grid-auto-flow: row dense;</span>
   <div class="container container-3">
+    <div class="item item-1">1</div>
+    <div class="item item-2">2</div>
+    <div class="item item-3">3</div>
+    <div class="item item-4">4</div>
+    <div class="item item-5">5</div>
+    <div class="item item-6">6</div>
+    <div class="item item-7">7</div>
+    <div class="item item-8">8</div>
+    <div class="item item-9">9</div>
+  </div>
+  <span>grid-auto-flow: column dense;</span>
+  <div class="container container-4">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
     <div class="item item-3">3</div>

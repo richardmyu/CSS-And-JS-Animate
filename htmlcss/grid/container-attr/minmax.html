@@ -5,32 +5,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>auto</title>
-  <link rel="stylesheet" href="./index.css" />
+  <title>minmax</title>
+  <link rel="stylesheet" href="../index.css" />
   <style>
-    span {
-      font-size: 2em;
-    }
-
     /*
-    * auto 关键字表示由浏览器自己决定长度
+    * minmax()函数产生一个长度范围，
+    * 表示长度就在这个范围之中。
+    * 它接受两个参数，分别为最小值和最大值。
+    * (优先取最大值)
     */
     .container-1 {
-      grid-template-columns: 1fr 1fr auto;
+      grid-template-columns: 1fr 1fr minmax(100px, 1fr);
     }
 
     .container-2 {
-      grid-template-columns: 1fr 2fr auto;
+      grid-template-columns: 1fr 2fr minmax(100px, 1fr);
     }
 
     .container-3 {
-      grid-template-columns: 100px auto 100px;
+      grid-template-columns: 100px 1fr minmax(100px, 1fr);
     }
   </style>
 </head>
 
 <body>
-  <span>grid-template-columns: 1fr 1fr auto;</span>
+  <span>grid-template-columns: 1fr 1fr minmax(100px, 1fr);</span>
   <div class="container container-1">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
@@ -42,7 +41,7 @@
     <div class="item item-8">8</div>
     <div class="item item-9">9</div>
   </div>
-  <span>grid-template-columns: 1fr 2fr auto;</span>
+  <span>grid-template-columns: 1fr 2fr minmax(100px, 1fr);</span>
   <div class="container container-2">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
@@ -54,7 +53,7 @@
     <div class="item item-8">8</div>
     <div class="item item-9">9</div>
   </div>
-  <span>grid-template-columns: 100px auto 100px;</span>
+  <span>grid-template-columns: 100px 1fr minmax(100px, 1fr);</span>
   <div class="container container-3">
     <div class="item item-1">1</div>
     <div class="item item-2">2</div>
