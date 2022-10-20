@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悬停效果</title>
+  <style>
+    .gallery {
+      --s: 200px;
+      /* control the size */
+      --r: 45px;
+      /* control the triangular shape */
+
+      display: grid;
+      gap: 6px;
+      grid: auto-flow var(--s)/repeat(2, var(--s));
+      cursor: pointer;
+    }
+
+    .gallery>img {
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .gallery>img:is(:nth-child(1), :nth-child(4)) {
+      width: 100%;
+      height: calc(100% + var(--r));
+    }
+
+    .gallery>img:is(:nth-child(2), :nth-child(3)) {
+      height: 100%;
+      width: calc(100% + var(--r));
+    }
+
+    .gallery>img:nth-child(1) {
+      clip-path: polygon(0 0, 100% 0, calc(100% - var(--r)) calc(50% - var(--r)/2), 100% calc(100% - var(--r)), 50% 100%, 0 calc(100% - var(--r)))
+    }
+
+    .gallery>img:nth-child(2) {
+      place-self: end;
+      clip-path: polygon(var(--r) 0, 100% 0, 100% 100%, calc(50% + var(--r)/2) calc(100% - var(--r)), var(--r) 100%, 0 50%)
+    }
+
+    .gallery>img:nth-child(3) {
+      clip-path: polygon(0 0, calc(50% - var(--r)/2) var(--r), calc(100% - var(--r)) 0, 100% 50%, calc(100% - var(--r)) 100%, 0 100%)
+    }
+
+    .gallery>img:nth-child(4) {
+      place-self: end;
+      clip-path: polygon(0 var(--r), 50% 0, 100% var(--r), 100% 100%, 0 100%, var(--r) calc(50% + var(--r)/2))
+    }
+
+    .gallery:hover {
+      --r: 0px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+      background: #4A90E2;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- https://code.juejin.cn/pen/7133195476844675103 -->
+  <div class="gallery">
+    <img src="../../../assets/img/4vo3gl.jpg" alt="...">
+    <img src="../../../assets/img/7392y3.jpg" alt="...">
+    <img src="../../../assets/img/crgn3f.jpg" alt="...">
+    <img src="../../../assets/img/f342y3.jpg" alt="...">
+  </div>
+</body>
+
+</html>
