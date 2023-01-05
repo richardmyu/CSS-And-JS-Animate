@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+body,
+html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #000;
+  overflow: hidden;
+}
+
+div {
+  position: relative;
+  margin: auto;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  font: 18vw Righteous;
+  animation: fade 14s infinite;
+  -webkit-box-reflect: below -2vw linear-gradient(transparent 20%, rgba(255, 255, 255, 0.6));
+}
+
+div::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  transform: translate(0, -100%);
+}
+
+span {
+  position: relative;
+  display: inline-block;
+  min-width: 0.5em;
+  text-align: center;
+  transform-style: preserve-3d;
+  /* letter-spacing: -100px; */
+  transform: rotateY(25deg);
+  animation: rotate 14s infinite ease-in-out;
+  color: transparent;
+  background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180815%2Ff26de16c9dfa40c1ba0bfe9ae81be3ee.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1673678016&t=47dde8d78f9d5064f9a9c4764422facf);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+span:after, span:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: attr(class);
+  color: transparent;
+  filter: brightness(3) contrast(0.8);
+  z-index: -1;
+  background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180815%2Ff26de16c9dfa40c1ba0bfe9ae81be3ee.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1673678016&t=47dde8d78f9d5064f9a9c4764422facf);
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position: 20px 20px;
+}
+
+span:before {
+  transform: translateZ(-20px);
+}
+
+span:after {
+  transform: translateZ(-10px);
+  background-position: 30px 30px;
+}
+
+@keyframes fade {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(35deg);
+  }
+  to {
+    transform: rotateY(-35deg);
+  }
+}
